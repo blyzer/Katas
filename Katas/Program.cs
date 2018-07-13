@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Collections;
+using System.Linq.Expressions;
 
 namespace Katas.various
 {
@@ -65,6 +67,7 @@ namespace Katas.various
 
                     Console.WriteLine("Enter Numbers");
                     param = Console.ReadLine();
+                    //tesp();
                     Console.WriteLine(StringCalculator(param));
                 }
                 else if (ChoosenProgram == 0)
@@ -146,7 +149,7 @@ namespace Katas.various
             }
 
             numberToCalculate = _regexNumber.Replace(numbers, "");
-            int value = 100.ToString() == "100" ? 1 : -1;
+            
             operatorToUse = _regexOperator.Replace(numbers, "");
 
             if (operatorToUse == "")
@@ -162,7 +165,7 @@ namespace Katas.various
             {
                 if (pair.Key == operatorToUse[0].ToString())
                 {
-                    calculatedNumber = Operations(numbersStrArray, pair.Value);
+                    calculatedNumber = OperationsString(numbersStrArray, pair.Value);
                     break;
                 }
             }
@@ -170,8 +173,61 @@ namespace Katas.various
             return calculatedNumber + "\n";
         }
 
+        static void tesp ()
+        {
+            //int count = 0;
+
+            //Console.WriteLine("Insert your Calculation");
+            //string calculation = Console.ReadLine();
+            //string[] splitnumbers = calculation.Split(new Char[] { '+', '-', '*', '/' });
+            //string[] splitsigns = calculation.Split(new Char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+            //for (int i = 0; i < splitnumbers.Length - 1; i++)
+            //{
+            //    int firstNumber = int.Parse(splitnumbers[i].ToString());
+            //    int secondNumber = int.Parse(splitnumbers[i + 1].ToString());
+            //    string operatorString = splitsigns[i + 1].ToString();
+
+            //}
+            // Instantiate the parser
+            //ExpressionParser parser = new ExpressionParser();
+            //Math.Exp()
+            //// Create a hashtable to hold values
+            //Hashtable h = new Hashtable();
+            //// Add variables and values to hashtable
+            //h.Add("x", 1.ToString());
+            //h.Add("y", 2.ToString());
+            //// Parse and write the result
+            //double result = parser.Parse("xcos(y)", h);
+            //Console.WriteLine(Result: { 0}, result );
+        }
+
+        static string OperationsString(string[] numbers, string Operator)
+        {
+            string numbersOperation = "";
+            string numberResult = "";
+            Calculator calculator;
+
+            foreach (string splittedNumbers in numbers)
+            {
+                numbersOperation += " " + Operator + " " + splittedNumbers;
+
+            }
+
+            
+            
+
+            numberResult = numbersOperation.Remove(0, 3);
+            
+            string value = numberResult;
+            Expression exp = Expression.Convert(expression:Expression.Constant(value), typeof(double));
+            
+            double valueConverted = double.Parse(exp.ToString());
+
+            return value + " (" + numberResult + ")";
+        }
+
         static string Operations(string [] numbers, string Operator)
-        {            
+        {
             string numbersOperation = "";
             string numberResult = "";
 
