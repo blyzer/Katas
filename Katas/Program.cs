@@ -11,6 +11,9 @@ namespace Katas.various
 {
     public static class Program
     {
+        /// <summary>
+        /// This Dictionary help to identify the roman number to be converted.
+        /// </summary>
         static Dictionary<string, int> RomanMap = new Dictionary<string, int>()
         {
             {" ", 0 },
@@ -23,7 +26,10 @@ namespace Katas.various
             {"M", 1000}
         };
 
-        static Dictionary<string, string> operators = new Dictionary<string, string>()
+        /// <summary>
+        /// This Dictionary help to identify the arithmetic operations to be performed.
+        /// </summary>
+        static readonly Dictionary<string, string> operators = new Dictionary<string, string>()
         {
             { "", "+" },
             { " ", "+" },
@@ -35,8 +41,45 @@ namespace Katas.various
             { "÷", "/"}
         };
 
+        /// <summary>
+        /// This struct defines all of the operations that can be done.
+        /// These operations can be assigned to operators to the StringCalculator.
+        /// </summary>
+        struct Calculator
+        {
+            public double Sum(double firstNumber, double secondNumber)
+            {
+                return firstNumber + secondNumber;
+            }
+
+            public double Subtract(double firstNumber, double secondNumber)
+            {
+                return firstNumber - secondNumber;
+            }
+            public double Multiply(double firstNumber, double secondNumber)
+            {
+                return firstNumber * secondNumber;
+            }
+
+            public Double Divide(Double firstNumber, Double secondNumber)
+            {
+                return firstNumber / secondNumber;
+            }
+        }
+
+        /// <summary>
+        ///  This regex help to identify numeric characters.
+        /// </summary>
         static readonly Regex _regexNumber = new Regex("[^0-9. ,;]");
+
+        /// <summary>
+        ///  This regex help to identify arithmetic operators.
+        /// </summary>
         static readonly Regex _regexOperator = new Regex("[^\\/\\-*+]");
+
+        /// <summary>
+        ///  this regex help to identify arithmetic operators.
+        /// </summary>
         static readonly Regex _regexOperatorToEliminate = new Regex("[\\/\\-*+]");
 
         public static void Main()
@@ -94,8 +137,6 @@ namespace Katas.various
             return "the result is: " + numberQuantity + "\n";
         }
 
-        
-
         public static int RomanToInteger(string roman)
         {
             int presentNumber = 0;
@@ -118,7 +159,6 @@ namespace Katas.various
             return presentNumber;
         }
 
-
         public static string WordWrap(string unWrappedText)
         {
             string stringReturned = "";
@@ -134,6 +174,16 @@ namespace Katas.various
             return stringReturned;
         }
 
+        /// <summary>
+        ///  This method serve to convert string numeration where the first
+        ///  character must be the arithmetic operator and later the numbers
+        ///  separated by one of this characters: comma, semicolon and space. 
+        /// </summary>
+        /// <param name="numbers">
+        /// The string number to calculate character must be the arithmetic 
+        /// operator and later the numbers separated by one of this 
+        /// characters: comma, semicolon and space.
+        /// </param>
         public static string StringCalculator(string numbers)
         {
             string numberToCalculate;
@@ -172,75 +222,42 @@ namespace Katas.various
 
             return calculatedNumber + "\n";
         }
-
-        static void tesp ()
-        {
-            //int count = 0;
-
-            //Console.WriteLine("Insert your Calculation");
-            //string calculation = Console.ReadLine();
-            //string[] splitnumbers = calculation.Split(new Char[] { '+', '-', '*', '/' });
-            //string[] splitsigns = calculation.Split(new Char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
-            //for (int i = 0; i < splitnumbers.Length - 1; i++)
-            //{
-            //    int firstNumber = int.Parse(splitnumbers[i].ToString());
-            //    int secondNumber = int.Parse(splitnumbers[i + 1].ToString());
-            //    string operatorString = splitsigns[i + 1].ToString();
-
-            //}
-            // Instantiate the parser
-            //ExpressionParser parser = new ExpressionParser();
-            //Math.Exp()
-            //// Create a hashtable to hold values
-            //Hashtable h = new Hashtable();
-            //// Add variables and values to hashtable
-            //h.Add("x", 1.ToString());
-            //h.Add("y", 2.ToString());
-            //// Parse and write the result
-            //double result = parser.Parse("xcos(y)", h);
-            //Console.WriteLine(Result: { 0}, result );
-        }
-
+        
         static string OperationsString(string[] numbers, string Operator)
         {
             string numbersOperation = "";
             string numberResult = "";
             Calculator calculator;
+            double valueConverted = 0.00;
+            double numberSplitted = 1.00;
 
             foreach (string splittedNumbers in numbers)
             {
+                valueConverted = double.Parse(splittedNumbers);
                 numbersOperation += " " + Operator + " " + splittedNumbers;
+                
+                if (Operator == "+")
+                {
+                    numberSplitted = calculator.Sum(numberSplitted, valueConverted);
+                }
+                else if (Operator == "-")
+                {
+                    numberSplitted = calculator.Subtract(numberSplitted, valueConverted);
+                }
+                else if (Operator == "*")
+                {
+                    numberSplitted = calculator.Multiply(numberSplitted, valueConverted);
+                }
+                else if (Operator == "/")
+                {
+                    numberSplitted = calculator.Divide(numberSplitted, valueConverted);
+                }
 
-            }
-
-            
-            
-
-            numberResult = numbersOperation.Remove(0, 3);
-            
-            string value = numberResult;
-            Expression exp = Expression.Convert(expression:Expression.Constant(value), typeof(double));
-            
-            double valueConverted = double.Parse(exp.ToString());
-
-            return value + " (" + numberResult + ")";
-        }
-
-        static string Operations(string [] numbers, string Operator)
-        {
-            string numbersOperation = "";
-            string numberResult = "";
-
-            foreach (string splittedNumbers in numbers)
-            {
-                numbersOperation += " " + Operator + " " + splittedNumbers;
-            }
+            }            
 
             numberResult = numbersOperation.Remove(0, 3);
 
-            string value = new DataTable().Compute(numberResult, null).ToString();
-
-            return value + " (" + numberResult + ")";
+            return numberSplitted + " (" + numberResult + ")";
         }
     }
 }
