@@ -29,7 +29,7 @@ namespace Katas.various
         /// <summary>
         /// This Dictionary help to identify the arithmetic operations to be performed.
         /// </summary>
-        static readonly Dictionary<string, string> operators = new Dictionary<string, string>()
+        static readonly Dictionary<string, string> delimeters = new Dictionary<string, string>()
         {
             { "", "+" },
             { " ", "+" },
@@ -43,7 +43,7 @@ namespace Katas.various
 
         /// <summary>
         /// This struct defines all of the operations that can be done.
-        /// These operations can be assigned to operators to the StringCalculator.
+        /// These operations can be assigned to delimeters to the StringCalculator.
         /// </summary>
         struct Calculator
         {
@@ -68,52 +68,52 @@ namespace Katas.various
         }
 
         /// <summary>
-        ///  This regex help to identify numeric characters.
+        ///  This regular expression help to identify numeric characters.
         /// </summary>
         static readonly Regex _regexNumber = new Regex("[^0-9. ,;]");
 
         /// <summary>
-        ///  This regex help to identify arithmetic operators.
+        ///  This regular expression help to identify arithmetic delimeters.
         /// </summary>
-        static readonly Regex _regexOperator = new Regex("[^\\/\\-*+]");
-
-        /// <summary>
-        ///  this regex help to identify arithmetic operators.
-        /// </summary>
-        static readonly Regex _regexOperatorToEliminate = new Regex("[\\/\\-*+]");
+        static readonly Regex _regexDelimeter = new Regex("[^\\/\\-*+]");
 
         public static void Main()
         {
-            int ChoosenProgram = 1;
-            string param = "";
+            int choosenProgram = 1;
+            int ColumText = 0;
+            string textParam = "";
 
-            while (ChoosenProgram == 1 || ChoosenProgram == 2 || ChoosenProgram == 3)
+            while (choosenProgram == 1 || choosenProgram == 2 || choosenProgram == 3)
             {
 
                 Console.WriteLine("Choose an option: \n 1: Word Wrap \n 2: Arabic number to Roman number Converter \n 3: String Calculator \n 0: to exit");
-                int.TryParse(Console.ReadLine(), out ChoosenProgram);
+                int.TryParse(Console.ReadLine(), out choosenProgram);
 
-                if (ChoosenProgram == 1)
+                if (choosenProgram == 1)
                 {
 
                     Console.WriteLine("Enter the string to wrap");
-                    param = Console.ReadLine();
+                    textParam = Console.ReadLine();
 
-                    Console.WriteLine(WordWrap(param));
+                    Console.WriteLine("Enter the number of the column to separate.");
+                    int.TryParse(Console.ReadLine(), out ColumText);
+
+                    Console.WriteLine(Wrapper.Wrap(textParam, ColumText));
                 }
-                else if (ChoosenProgram == 2)
+                else if (choosenProgram == 2)
                 {
                     Console.WriteLine(RomanNumnber());
                 }
-                else if (ChoosenProgram == 3)
+                else if (choosenProgram == 3)
                 {
 
                     Console.WriteLine("Enter Numbers");
-                    param = Console.ReadLine();
+                    textParam = Console.ReadLine();
                     //tesp();
-                    Console.WriteLine(StringCalculator(param));
+                    Console.WriteLine(StringCalculator(textParam));
+                    Console.WriteLine(WordWrap(textParam));
                 }
-                else if (ChoosenProgram == 0)
+                else if (choosenProgram == 0)
                 {
                     break;
                 }
@@ -176,79 +176,95 @@ namespace Katas.various
 
         /// <summary>
         ///  This method serve to convert string numeration where the first
-        ///  character must be the arithmetic operator and later the numbers
+        ///  character must be the arithmetic delimeter and later the numbers
         ///  separated by one of this characters: comma, semicolon and space. 
         /// </summary>
         /// <param name="numbers">
         /// The string number to calculate character must be the arithmetic 
-        /// operator and later the numbers separated by one of this 
+        /// delimeter and later the numbers separated by one of this 
         /// characters: comma, semicolon and space.
         /// </param>
         public static string StringCalculator(string numbers)
         {
             string numberToCalculate;
-            string operatorToUse;
+            string delimeterToUse;
+
+            /// Using as default message calculated number resulto too.
             string calculatedNumber = "Must enter a number or the entered charaters are not numbers";
+
+            /// Separator characters.
             char[] separators = { ',', ';', ' ' };
-            string[] numbersStrArray;
             List<string> numbersList = new List<string>();
 
+            /// Verifying if is empty.
             if (string.IsNullOrEmpty(numbers))
             {
                 return calculatedNumber;
             }
 
+            /// Clearing from any other character is not defined 
+            /// in the regular expression to find numeric characters.
             numberToCalculate = _regexNumber.Replace(numbers, "");
-            
-            operatorToUse = _regexOperator.Replace(numbers, "");
 
-            if (operatorToUse == "")
+            /// clearing from any character that is not a arithmetic delimeter.
+            delimeterToUse = _regexDelimeter.Replace(numbers, "");
+
+            /// Assigning the default delimeter if it is empty sum.
+            if (delimeterToUse == "")
             {
-                operatorToUse = "+";
+                delimeterToUse = "+";
             }
 
+            /// Spliting the number to a list.
             numbersList = numberToCalculate.Split(separators).ToList();
             numbersList.Remove("");
-            numbersStrArray = numbersList.ToArray();
 
-            foreach (KeyValuePair<string, string> pair in operators)
+            /// Finding the delimeter to call the method CalculateOperations
+            foreach (KeyValuePair<string, string> pair in delimeters)
             {
-                if (pair.Key == operatorToUse[0].ToString())
+                if (pair.Key == delimeterToUse[0].ToString())
                 {
-                    calculatedNumber = OperationsString(numbersStrArray, pair.Value);
+                    calculatedNumber = CalculateOperations(numbersList.ToArray(), pair.Value);
                     break;
                 }
             }
 
             return calculatedNumber + "\n";
         }
-        
-        static string OperationsString(string[] numbers, string Operator)
+
+        /// <summary>
+        ///  This method serve to convert string numeration where the first
+        ///  character must be the arithmetic delimeter and later the numbers
+        ///  separated by one of this characters: comma, semicolon and space. 
+        /// </summary>
+        /// <param name="numbers">The string array numbers going to be calculated. </param>
+        /// <param name="Delimeter">The arithmetic delimeter</param>
+        static string CalculateOperations(string[] numbers, string Delimeter)
         {
             string numbersOperation = "";
             string numberResult = "";
             Calculator calculator;
             double valueConverted = 0.00;
-            double numberSplitted = 1.00;
+            double numberSplitted = 0.00;
 
             foreach (string splittedNumbers in numbers)
             {
                 valueConverted = double.Parse(splittedNumbers);
-                numbersOperation += " " + Operator + " " + splittedNumbers;
+                numbersOperation += " " + Delimeter + " " + splittedNumbers;
                 
-                if (Operator == "+")
+                if (Delimeter == "+")
                 {
                     numberSplitted = calculator.Sum(numberSplitted, valueConverted);
                 }
-                else if (Operator == "-")
+                else if (Delimeter == "-")
                 {
                     numberSplitted = calculator.Subtract(numberSplitted, valueConverted);
                 }
-                else if (Operator == "*")
+                else if (Delimeter == "*")
                 {
                     numberSplitted = calculator.Multiply(numberSplitted, valueConverted);
                 }
-                else if (Operator == "/")
+                else if (Delimeter == "/")
                 {
                     numberSplitted = calculator.Divide(numberSplitted, valueConverted);
                 }
