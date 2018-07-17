@@ -7,7 +7,7 @@ using System.Data;
 using System.Collections;
 using System.Linq.Expressions;
 
-namespace Katas.various
+namespace Katas.Wrap
 {
     public static class Program
     {

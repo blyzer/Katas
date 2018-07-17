@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Katas.various
+namespace Katas.Wrap
 {
     public static class Wrapper
     {

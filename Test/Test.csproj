@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Katas\Katas.various.csproj" />
+    <ProjectReference Include="..\Katas\Katas.Wrap.csproj" />
   </ItemGroup>
 
 </Project>
