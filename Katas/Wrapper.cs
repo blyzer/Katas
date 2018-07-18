@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,32 +9,49 @@ namespace Katas.Wrap
 {
     public static class Wrapper
     {
-        public static void WrapWithRgex(string unWrappedText)
-        {
-            List<string> wrappedWords = new List<string>();
-            wrappedWords = Regex.Matches(unWrappedText, "([a-zA-Z0-9]*\\S)").Cast<Match>().Select(m => m.Value).ToList();
-            wrappedWords.ToString().Replace(" ", "");
-
-            foreach (var item in wrappedWords)
-            {
-                Console.WriteLine(item);
-            }
-        }
-
         public static string Wrap(string unWrappedText, int wrappedZise)
         {
-
-            if (unWrappedText.Length <= wrappedZise)
+            var actualCount = 0;
+            var wrappedword = string.Empty;
+            char previousCharOfWord = '\0';
+            
+            if (unWrappedText == "\n")
+            {
                 return unWrappedText;
+            }
 
-            if (unWrappedText[wrappedZise] == ' ')
-                return unWrappedText.Substring(0, wrappedZise) + '\n' + Wrap(unWrappedText.Substring(wrappedZise + 1), wrappedZise);
+            if ((string.IsNullOrEmpty(unWrappedText)) || (string.IsNullOrWhiteSpace(unWrappedText)))
+            {
+                return string.Empty;
+            }
 
-            var previousSpace = unWrappedText.Substring(0, wrappedZise).LastIndexOf(' ');
-            if (previousSpace != -1)
-                return unWrappedText.Substring(0, previousSpace) + '\n' + Wrap(unWrappedText.Substring(previousSpace + 1), previousSpace);
+            foreach (var charOfWord in unWrappedText)
+            {
+                if (char.IsWhiteSpace(charOfWord) && previousCharOfWord != '\n')
+                {
+                    wrappedword += "\n";
+                    actualCount = 0;
+                    continue;
+                }
+                else if (char.IsWhiteSpace(charOfWord) && previousCharOfWord == '\n')
+                {
+                    actualCount = 0;
+                    continue;
+                }
 
-            return unWrappedText.Substring(0, wrappedZise) + '\n' + Wrap(unWrappedText.Substring(wrappedZise + 0), wrappedZise);
+                wrappedword += charOfWord.ToString();
+                previousCharOfWord = charOfWord;
+                actualCount++;
+
+                if (actualCount == wrappedZise)
+                {
+                    previousCharOfWord = '\n';
+                    wrappedword += "\n";
+                    actualCount = 0;
+                }
+            }
+            
+            return wrappedword;
         }
     }
 }
