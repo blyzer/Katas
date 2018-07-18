@@ -11,8 +11,8 @@ namespace Katas.Wrap
     {
         public static string Wrap(string unWrappedText, int wrappedZise)
         {
-            var actualCount = 0;
-            var wrappedword = string.Empty;
+            int actualCount = 0;
+            string wrappedword = string.Empty;
             char previousCharOfWord = '\0';
             
             if (unWrappedText == "\n")
@@ -25,7 +25,7 @@ namespace Katas.Wrap
                 return string.Empty;
             }
 
-            foreach (var charOfWord in unWrappedText)
+            foreach (char charOfWord in unWrappedText)
             {
                 if (char.IsWhiteSpace(charOfWord) && previousCharOfWord != '\n')
                 {
