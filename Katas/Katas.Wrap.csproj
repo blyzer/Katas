@@ -20,4 +20,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Katas.ArabicToRoman\Katas.ArabicToRoman.csproj" />
+  </ItemGroup>
+
 </Project>
