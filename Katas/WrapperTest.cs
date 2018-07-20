@@ -4,7 +4,7 @@ using Katas.Wrap;
 namespace Test
 {
     [TestClass]
-    public static class UnitTest1
+    public static class WrapperTest
     {
         [TestMethod]
         public static void TestWordWrap()

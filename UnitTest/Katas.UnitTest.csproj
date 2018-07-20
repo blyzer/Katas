@@ -1,17 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <StartupObject>Katas.Wrap.Program</StartupObject>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>7.2</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <LangVersion>7.2</LangVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Katas.ArabicToRoman\Katas.ArabicToRoman.csproj" />
     <ProjectReference Include="..\Katas.StringCalculator\Katas.StringCalculator.csproj" />
+    <ProjectReference Include="..\Katas\Katas.Wrap.csproj" />
   </ItemGroup>
 
 </Project>

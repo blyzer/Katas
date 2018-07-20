@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.Wrap", "Katas\Katas.Wrap.csproj", "{FA402E5D-F963-4B4A-BD59-337C8F566326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas.StringCalculator", "Katas.StringCalculator\Katas.StringCalculator.csproj", "{6BACE1DC-A696-4B4E-9EF5-7A3DBFB64DAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.StringCalculator", "Katas.StringCalculator\Katas.StringCalculator.csproj", "{6BACE1DC-A696-4B4E-9EF5-7A3DBFB64DAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas.ArabicToRoman", "Katas.ArabicToRoman\Katas.ArabicToRoman.csproj", "{50D9DE39-5703-48AD-BE66-E1102778EB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.ArabicToRoman", "Katas.ArabicToRoman\Katas.ArabicToRoman.csproj", "{50D9DE39-5703-48AD-BE66-E1102778EB8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

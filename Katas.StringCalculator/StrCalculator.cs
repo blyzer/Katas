@@ -15,15 +15,13 @@ namespace Katas.StringCalculator
         /// <summary>
         ///  This regular expression help to identify arithmetic delimeters.
         /// </summary>
-        static readonly Regex _regexDelimeter = new Regex("[^\\/\\-*+]");
+        static readonly Regex _regexOperator = new Regex("[^\\/\\-*xX÷+]");
 
         /// <summary>
         /// This Dictionary help to identify the arithmetic operations to be performed.
         /// </summary>
         static readonly Dictionary<string, string> operatorArithmetic = new Dictionary<string, string>()
         {
-            { "", "+" },
-            { " ", "+" },
             { "+", "+" },
             { "-", "-"},
             { "*", "*"},
@@ -77,7 +75,7 @@ namespace Katas.StringCalculator
             string calculatedNumber = "Must enter a number or the entered charaters are not numbers";
 
             /// Separator characters.
-            char[] separators = { ',', ';', ' ' };
+            char[] delimiter = { ',', ';', ' ' };
             List<string> numbersList = new List<string>();
 
             /// Verifying if is empty.
@@ -90,17 +88,12 @@ namespace Katas.StringCalculator
             /// in the regular expression to find numeric characters.
             numberToCalculate = _regexNumber.Replace(numbers, "");
 
-            /// clearing from any character that is not a arithmetic delimeter.
-            delimeterToUse = _regexDelimeter.Replace(numbers, "");
-
-            /// Assigning the default delimeter if it is empty sum.
-            if (delimeterToUse == "")
-            {
-                delimeterToUse = "+";
-            }
+            /// clearing from any character that is not a arithmetic delimeter
+            /// and assigning the default delimeter if it is empty sum.
+            delimeterToUse = _regexOperator.Replace(numbers, "") == "" ? "+" : _regexOperator.Replace(numbers, "").ToLower();
 
             /// Spliting the number to a list.
-            numbersList = numberToCalculate.Split(separators).ToList();
+            numbersList = numberToCalculate.Split(delimiter).ToList();
             numbersList.Remove("");
 
             /// Finding the delimeter to call the method CalculateOperations
@@ -113,7 +106,7 @@ namespace Katas.StringCalculator
                 }
             }
 
-            return calculatedNumber + "\n";
+            return calculatedNumber;
         }
 
         /// <summary>
@@ -143,15 +136,15 @@ namespace Katas.StringCalculator
                 }
                 else if (operatorMath == "-")
                 {
-                    numberSplitted = calculator.Subtract(numberSplitted, numberChanged);
+                    numberSplitted = Math.Abs(numberSplitted) <= 0 ? numberChanged : calculator.Subtract(numberSplitted, numberChanged);
                 }
                 else if (operatorMath == "*")
                 {
-                    numberSplitted = calculator.Multiply(numberSplitted, numberChanged);
+                    numberSplitted = Math.Abs(numberSplitted) <= 0 ? numberChanged : calculator.Multiply(numberSplitted, numberChanged);
                 }
                 else if (operatorMath == "/")
                 {
-                    numberSplitted = calculator.Divide(numberSplitted, numberChanged);
+                    numberSplitted = Math.Abs(numberSplitted) <= 0 ? numberChanged : calculator.Divide(numberSplitted, numberChanged);
                 }
 
             }

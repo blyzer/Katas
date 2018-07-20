@@ -15,7 +15,7 @@ namespace Katas.Wrap
             string wrappedword = string.Empty;
             char previousCharOfWord = '\0';
             
-            if (unWrappedText == "\n")
+            if (unWrappedText == "\n" || unWrappedText.Length <= wrappedZise)
             {
                 return unWrappedText;
             }

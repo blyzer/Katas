@@ -7,6 +7,7 @@ using System.Data;
 using System.Collections;
 using System.Linq.Expressions;
 using Katas.ArabicToRoman;
+using Katas.StringCalculator;
 
 namespace Katas.Wrap
 {
