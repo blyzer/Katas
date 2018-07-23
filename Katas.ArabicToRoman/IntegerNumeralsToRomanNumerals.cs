@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Katas.ArabicToRoman
 {
-    public static class ArabicNumeralsToRomanNumerals
+    public static class IntegerNumeralsToRomanNumerals
     {
         /// <summary>
         /// This Dictionary help to identify the roman number to be converted.
@@ -30,7 +29,7 @@ namespace Katas.ArabicToRoman
             { "I" , 1      }
         };
 
-        public static string Of(int arabic)
+        public static string Converter(int arabic)
         {
             if (arabic <= 0)
             {
