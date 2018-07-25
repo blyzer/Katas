@@ -1,16 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Katas.StringCalculator;
+using Katas.Calculator;
 
-namespace Katas.StringCalculator
+namespace Katas.UnitTest
 {
     [TestClass]
-    public class UniTest
+    public class CalculatorTest
     {
         [TestMethod]
         public void Add_EmptyString_ReturnsZero()
         {
             // Act
-            string result = StrCalculator.StringCalculator("");
+            string result = StringCalculator.NumbersCalculator("");
 
             // Assert
             Assert.AreEqual("Must enter a number or the entered charaters are not numbers", result);
@@ -32,7 +32,7 @@ namespace Katas.StringCalculator
         public void Add_ReturnsNumber(string input, string expected)
         {
             // Act
-            string result = StrCalculator.StringCalculator(input);
+            string result = StringCalculator.NumbersCalculator(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -54,7 +54,7 @@ namespace Katas.StringCalculator
         public void Sub_ReturnsNumber(string input, string expected)
         {
             // Act
-            string result = StrCalculator.StringCalculator(input);
+            string result = StringCalculator.NumbersCalculator(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -76,7 +76,7 @@ namespace Katas.StringCalculator
         public void Div_ReturnsNumber(string input, string expected)
         {
             // Act
-            string result = StrCalculator.StringCalculator(input);
+            string result = StringCalculator.NumbersCalculator(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -98,7 +98,7 @@ namespace Katas.StringCalculator
         public void Mul_ReturnsNumber(string input, string expected)
         {
             // Act
-            string result = StrCalculator.StringCalculator(input);
+            string result = StringCalculator.NumbersCalculator(input);
 
             // Assert
             Assert.AreEqual(expected, result);

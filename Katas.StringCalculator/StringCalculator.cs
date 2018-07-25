@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Katas.StringCalculator
+namespace Katas.Calculator
 {
-    public static class StrCalculator
+    public static class StringCalculator
     {
         /// <summary>
         ///  This regular expression help to identify numeric characters.
@@ -66,7 +66,7 @@ namespace Katas.StringCalculator
         /// delimeter and later the numbers separated by one of this 
         /// characters: comma, semicolon and space.
         /// </param>
-        public static string StringCalculator(string numbers)
+        public static string NumbersCalculator(string numbers)
         {
             string numberToCalculate;
             string delimeterToUse;

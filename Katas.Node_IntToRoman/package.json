@@ -1,0 +1,25 @@
+{
+  "name": "katas.node_int-to-roman",
+  "version": "0.0.1",
+  "description": "Return roman number from integer",
+  "main": "integer_numerals_to_roman_numerals",
+  "author": {
+    "name": "e.francisco"
+  },
+  "license": "CDDL-1.1",
+  "dependencies": {
+    "browserify": "*",
+    "jasmine-core": "*",
+    "karma-browserify": "*",
+    "tsify": "*",
+    "typescript": "*",
+    "watchify": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87",
+    "@types/jasmine": "*",
+    "karma": "*",
+    "karma-chrome-launcher": "*",
+    "karma-jasmine": "*"
+  }
+}
