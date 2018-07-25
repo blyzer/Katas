@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Tue Jul 24 2018 18:04:03 GMT-0400 (SA Western Standard Time)
 
-export default function (config) {
+module.exports = function (config) {
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
@@ -10,8 +10,7 @@ export default function (config) {
         frameworks: ['jasmine', 'browserify'],
         plugins: [
             require('karma-jasmine'),
-            require('karma-chrome-launcher'),
-            require('karma-jasmine-html-reporter')
+            require('karma-chrome-launcher')
         ],
         // list of files / patterns to load in the browser
         files: [
