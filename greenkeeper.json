@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Katas.Node_IntToRoman/package.json"
+      ]
+    }
+  }
+}
