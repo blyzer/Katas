@@ -4,7 +4,7 @@ using Katas.Calculator;
 namespace Katas.UnitTest
 {
     [TestClass]
-    public class UniTest
+    public static class UniTest
     {
         [TestMethod]
         public void Add_EmptyString_ReturnsZero()
