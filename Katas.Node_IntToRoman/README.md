@@ -1,3 +1,0 @@
-﻿# Katas.Node_IntToRoman
-
-

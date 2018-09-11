@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Katas.ArabicToRoman\Katas.ArabicToRoman.csproj" />
-    <ProjectReference Include="..\Katas.StringCalculator\Katas.StringCalculator.csproj" />
+    <ProjectReference Include="..\Katas.ArabicToRoman\Katas.IntegerToRoman.csproj" />
+    <ProjectReference Include="..\Katas.StringCalculator\Katas.Calculator.csproj" />
     <ProjectReference Include="..\Katas\Katas.Wrap.csproj" />
   </ItemGroup>
 

@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.Calculator", "Katas.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.IntegerToRoman", "Katas.ArabicToRoman\Katas.IntegerToRoman.csproj", "{50D9DE39-5703-48AD-BE66-E1102778EB8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.UnitTest", "Katas.UnitTest\Katas.UnitTest.csproj", "{20ED65FF-234F-49E4-A1C5-AD014EA3BE94}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Katas.Fibonacci", "Katas.Fibonacci\Katas.Fibonacci.njsproj", "{1AB287C4-20DC-43D5-B570-E2D060F2A7CD}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Katas.Node_IntToRoman", "Katas.Node_IntToRoman\Katas.Node_IntToRoman.njsproj", "{9B03AC98-5968-44A1-8688-F084A37B6587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Katas.UnitTest", "UnitTest\Katas.UnitTest.csproj", "{BBBC8906-DF26-4538-962F-F4D2993AC533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{50D9DE39-5703-48AD-BE66-E1102778EB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D9DE39-5703-48AD-BE66-E1102778EB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D9DE39-5703-48AD-BE66-E1102778EB8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20ED65FF-234F-49E4-A1C5-AD014EA3BE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20ED65FF-234F-49E4-A1C5-AD014EA3BE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20ED65FF-234F-49E4-A1C5-AD014EA3BE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20ED65FF-234F-49E4-A1C5-AD014EA3BE94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B03AC98-5968-44A1-8688-F084A37B6587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B03AC98-5968-44A1-8688-F084A37B6587}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B03AC98-5968-44A1-8688-F084A37B6587}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B03AC98-5968-44A1-8688-F084A37B6587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB287C4-20DC-43D5-B570-E2D060F2A7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB287C4-20DC-43D5-B570-E2D060F2A7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB287C4-20DC-43D5-B570-E2D060F2A7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB287C4-20DC-43D5-B570-E2D060F2A7CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBC8906-DF26-4538-962F-F4D2993AC533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBC8906-DF26-4538-962F-F4D2993AC533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBC8906-DF26-4538-962F-F4D2993AC533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBC8906-DF26-4538-962F-F4D2993AC533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
