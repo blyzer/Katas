@@ -7,7 +7,7 @@ namespace Katas.UnitTest
     public static class UniTest
     {
         [TestMethod]
-        public void Add_EmptyString_ReturnsZero()
+        public static void Add_EmptyString_ReturnsZero()
         {
             // Act
             string result = StringCalculator.NumbersCalculator("");
@@ -17,7 +17,7 @@ namespace Katas.UnitTest
         }
 
         [TestMethod]
-        public void Add_ReturnsNumber(string input, string expected)
+        public static void Add_ReturnsNumber(string input, string expected)
         {
             // Act
             string result = StringCalculator.NumbersCalculator(input);
@@ -27,7 +27,7 @@ namespace Katas.UnitTest
         }
 
         [TestMethod]
-        public void Sub_ReturnsNumber(string input, string expected)
+        public static void Sub_ReturnsNumber(string input, string expected)
         {
             // Act
             string result = StringCalculator.NumbersCalculator(input);
@@ -37,7 +37,7 @@ namespace Katas.UnitTest
         }
 
         [TestMethod]
-        public void Div_ReturnsNumber(string input, string expected)
+        public static void Div_ReturnsNumber(string input, string expected)
         {
             // Act
             string result = StringCalculator.NumbersCalculator(input);
@@ -47,7 +47,7 @@ namespace Katas.UnitTest
         }
 
         [TestMethod]
-        public void Mul_ReturnsNumber(string input, string expected)
+        public static void Mul_ReturnsNumber(string input, string expected)
         {
             // Act
             string result = StringCalculator.NumbersCalculator(input);
