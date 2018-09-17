@@ -1,4 +1,4 @@
-function FibonacciMod() {
+function fibonacciMod() {
     "use strict";
     /**
      * @param {number} number
@@ -25,4 +25,4 @@ function FibonacciMod() {
     };
 }
 
-module.exports = FibonacciMod();
+module.exports = fibonacciMod();
