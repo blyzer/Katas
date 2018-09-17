@@ -1,21 +1,28 @@
-"use strict";
+function FibonacciMod() {
+    "use strict";
+    /**
+     * @param {number} number
+     * @returns The n's number in the Fibonacci sequence.
+     */
+    function fibonacci(number, memory) {
+        memory = memory || {};
 
-/**
- * @param {number} number
- * @returns The 'n'th number in the Fibonacci sequence.
- */
-function fibonacci(number, memory) {
-    memory = memory || {};
+        if (memory[number]) {
+            return memory[number];
+        }
 
-    if (memory[number]) {
+        if (number <= 2) {
+            return 1;
+        }
+
+        memory[number] = fibonacci(number - 1, memory) + fibonacci(number - 2, memory);
+
         return memory[number];
     }
 
-    if (number <= 2) {
-        return 1;
-    }
-
-    return memory[number] = fibonacci(number - 1, memory) + fibonacci(number - 2, memory);
+    return {
+        fibonacci
+    };
 }
 
-//console.log(fibonacci(30));
+module.exports = FibonacciMod();
