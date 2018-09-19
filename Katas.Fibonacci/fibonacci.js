@@ -1,3 +1,6 @@
+/**
+ * @constructor this a Construction module to fibonacci sequence for export.
+ */
 function fibonacciMod() {
     "use strict";
     /**
@@ -5,8 +8,10 @@ function fibonacciMod() {
      * @returns The n's number in the Fibonacci sequence.
      */
     function fibonacci(number, memory) {
+        /**  */
         memory = memory || {};
 
+        /**  */
         if (memory[number]) {
             return memory[number];
         }
@@ -25,4 +30,5 @@ function fibonacciMod() {
     };
 }
 
+/** exporting the module. */
 module.exports = fibonacciMod();
