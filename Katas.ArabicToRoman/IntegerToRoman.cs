@@ -5,7 +5,7 @@ namespace Katas.IntegerToRoman
     public static class IntegerToRoman
     {
         /// <summary>
-        /// This Dictionary help to identify the roman number to be converted.
+        ///     This Dictionary help to identify the roman number to be converted.
         /// </summary>
         static readonly Dictionary<string, int> romanToArabics = new Dictionary<string, int>()
         {
@@ -29,16 +29,30 @@ namespace Katas.IntegerToRoman
             { "I" , 1      }
         };
 
+        /// <summary>
+        ///     Convert arabic number to roman number
+        /// </summary>
+        /// <param name="arabic"> 
+        ///     Integer parameter to convert to roman number string
+        /// </param>/>
+        ///  <returns>
+        ///     Return the arabic number converted to roman number string, by the parameter <paramref name="arabic"/>
+        ///  </returns>
         public static string Converter(int arabic)
         {
+            /// <summary>
+            ///     verifying if minor or equal to zero.
+            /// </summary>
             if (arabic <= 0)
             {
                 return "is emtpy the number";
             }
-
-
+            
             string result = "";
 
+            /// <summary>
+            /// Iterating the arabic number comparying to roman dictionary string.
+            /// </summary>
             foreach (var romanToArabic in romanToArabics)
             {
                 while (arabic >= romanToArabic.Value)

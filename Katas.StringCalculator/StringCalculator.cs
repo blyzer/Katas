@@ -66,6 +66,9 @@ namespace Katas.Calculator
         /// delimeter and later the numbers separated by one of this 
         /// characters: comma, semicolon and space.
         /// </param>
+        /// <returns>
+        /// String calculated as number.
+        /// </returns>
         public static string NumbersCalculator(string numbers)
         {
             string numberToCalculate;
