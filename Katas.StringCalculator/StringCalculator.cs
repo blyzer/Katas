@@ -36,12 +36,12 @@ namespace Katas.Calculator
         /// </summary>
         struct Calculator
         {
-            public double Sum(double firstNumber, double secondNumber) => firstNumber + secondNumber;
+            public static double Sum(double firstNumber, double secondNumber) => firstNumber + secondNumber;
 
-            public double Subtract(double firstNumber, double secondNumber) => firstNumber - secondNumber;
-            public double Multiply(double firstNumber, double secondNumber) => firstNumber * secondNumber;
+            public static double Subtract(double firstNumber, double secondNumber) => firstNumber - secondNumber;
+            public static double Multiply(double firstNumber, double secondNumber) => firstNumber * secondNumber;
 
-            public Double Divide(Double firstNumber, Double secondNumber) => firstNumber / secondNumber;
+            public static Double Divide(Double firstNumber, Double secondNumber) => firstNumber / secondNumber;
         }
 
         /// <summary>
